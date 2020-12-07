@@ -74,7 +74,7 @@ export default {
   computed: {
     messagesAutoDelay() {
       return this.messages.map((x, index) => {
-        return { ...x, delay: index * 100 };
+        return { ...x, delay: index * 1000 };
       });
     }
   },
@@ -88,8 +88,7 @@ export default {
 
 <template>
   <div id="messageContent">
-    <h3>Message Typer component</h3>
-
+      <h1 class="title">Hello You</h1>
     <vue-typer
       v-for="message in messagesAutoDelay"
       :key="message.id"
@@ -105,7 +104,9 @@ export default {
 
 <style lang="css">
 #messageContent {
-  text-align: left;
+    padding: 1rem;;
+    width: 100%;
+    text-align: left;
 }
 
 .custom.caret {
