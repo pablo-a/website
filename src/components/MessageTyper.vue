@@ -74,13 +74,13 @@ export default {
   computed: {
     messagesAutoDelay() {
       return this.messages.map((x, index) => {
-        return { ...x, delay: index * 1000 };
+        return { ...x, delay: index * 300 };
       });
     }
   },
   methods: {
     onTyped() {
-      window.scrollTo(0, document.body.scrollHeight);
+      window.scrollTo(0, document.body.scrollHeight + 100);
     }
   }
 };
@@ -99,12 +99,16 @@ export default {
       caret-animation="blink"
     ></vue-typer>
     <!-- <vue-typer :text="message" :erase-on-complete="false" type-delay='70'></vue-typer><br> -->
+  <br>
+  <br>
+  <br>
+  <br>
   </div>
 </template>
 
 <style lang="css">
 #messageContent {
-    padding: 1rem;;
+    padding: 1rem;
     width: 100%;
     text-align: left;
 }
