@@ -27,7 +27,7 @@ export default {
 
     <transition name="password">
         <div class="protection">
-            <h1 class="title">Are you really you ?</h1>
+            <h1 class="title">Are you Florence ?</h1>
             <div class="form" v-if="!formCorrectlyAnswered">
                 <div class="field">
                     <label class="label">Mot de passe</label>
@@ -44,6 +44,8 @@ export default {
 </template>
 
 <style>
+
+
 #flo.password-enter-active, #flo.password-leave-active {
   transition: bounce-in 3s;
 }

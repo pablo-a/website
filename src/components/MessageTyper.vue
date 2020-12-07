@@ -1,67 +1,11 @@
 <script>
 const MESSAGES = [
   { content: "Salut Flo\n", delay: 50 },
-  { content: "Salut ça va\n", delay: 3000 },
-  { content: "Salut ça va\n", delay: 4000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 },
-  { content: "Salut ça va\n", delay: 5000 }
+  { content: "C'est compliqué pour moi de parler mais je vais tenter de mener à bien cette tâche.\n" },
+  { content: "Car je te le dois et j'aimerais pouvoir réparer notre relation.\n" },
+  { content: "C'est vraiment insupportable pour moi de t'avoir fait du mal\n", },
+  { content: "Well c'est vraiment de la merde Pablo\n", },
+  { content: "va falloir retravailler ce texte\n", },
 ];
 
 export default {
@@ -73,9 +17,22 @@ export default {
   },
   computed: {
     messagesAutoDelay() {
-      return this.messages.map((x, index) => {
-        return { ...x, delay: index * 300 };
-      });
+        this.messages.forEach(function(message, index, array)  {
+            if (index === 0) {
+                return
+            }
+            const prevMessage = array[index - 1]
+            const delay = prevMessage['delay'] + prevMessage['content'].length * 70 + 2000
+
+            array[index]['delay'] = delay
+
+            }
+        );
+        return this.messages
+
+    //   return this.messages.map((x, index) => {
+    //     return { ...x, delay: index * 1000 };
+    //   });
     }
   },
   methods: {
@@ -108,9 +65,17 @@ export default {
 
 <style lang="css">
 #messageContent {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 1%;
     padding: 1rem;
+    margin: 1rem;
     width: 100%;
     text-align: left;
+}
+
+.vue-typer .custom.char {
+    color: white;
 }
 
 .custom.caret {
