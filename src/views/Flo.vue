@@ -16,7 +16,7 @@ export default {
   },
   computed: {
       formCorrectlyAnswered() {
-          return this.password == "pablo"
+          return this.password.toLowerCase() == "pablo"
       },
   }
 };
